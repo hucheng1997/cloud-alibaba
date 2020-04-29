@@ -5,6 +5,7 @@ import com.hucheng.mapper.OrderDao;
 import com.hucheng.service.AccountService;
 import com.hucheng.service.OrderService;
 import com.hucheng.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Override
+    @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
     public void create(Order order) {
         log.info("新建订单：" + order.getId());
         orderDao.create(order);

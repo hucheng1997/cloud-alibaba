@@ -4,10 +4,6 @@ import com.hucheng.bean.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-/**
- * @Author EiletXie
- * @Since 2020/3/18 21:16
- */
 @Mapper
 public interface OrderDao {
     /**
